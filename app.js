@@ -5,11 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var engine = require('ejs-locals');
+var compression = require('compression');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
+
+app.use(compression());
 
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
